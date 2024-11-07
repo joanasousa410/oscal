@@ -1,0 +1,90 @@
+{
+  "system-security-plan" : {
+    "uuid" : "e03f0068-4a35-4dfb-9c75-d73be7f909b2",
+    "metadata" : {
+      "title" : "CSA SignServer SSP",
+      "last-modified" : "2023-05-16T13:57:28.355446-04:00",
+      "version" : "1.0",
+      "oscal-version" : "1.0.4",
+      "roles" : [ {
+        "id" : "owner",
+        "title" : "CSA SignServer Owner"
+      }, {
+        "id" : "developer",
+        "title" : "CSA SignServer Developer"
+      }, {
+        "id" : "system-engineer",
+        "title" : "CSA SignServer System Engineer"
+      }, {
+        "id" : "public-affairs-office",
+        "title" : "CSA Public Affairs Office"
+      } ],
+      "parties" : [ {
+        "uuid" : "5426fcf0-212a-4d4c-be67-f023c7e2370c",
+        "type" : "person",
+        "name" : "Joana Sousa",
+        "member-of-organizations" : [ "889ce9bd-6a5c-4298-806f-b9a50a8348b8" ]
+      }, {
+        "uuid" : "889ce9bd-6a5c-4298-806f-b9a50a8348b8",
+        "type" : "organization",
+        "name" : "Chrono Secure Agency",
+        "short-name" : "CSA"
+      } ],
+      "responsible-parties" : [ {
+        "role-id" : "owner",
+        "party-uuids" : [ "5426fcf0-212a-4d4c-be67-f023c7e2370c" ]
+      }, {
+        "role-id" : "developer",
+        "party-uuids" : [ "5426fcf0-212a-4d4c-be67-f023c7e2370c" ]
+      }, {
+        "role-id" : "system-engineer",
+        "party-uuids" : [ "5426fcf0-212a-4d4c-be67-f023c7e2370c" ]
+      } ]
+    },
+    "import-profile" : {
+      "href" : "..select/profile.oscal.json"
+    },
+    "system-characteristics" : {
+      "system-ids" : [ {
+        "identifier-type" : "http://ietf.org/rfc/rfc4122",
+        "id" : "70969f25-13d5-4414-9b9d-cedf207dc55b"
+      } ],
+      "system-name" : "CSA SignServer",
+      "description" : "This system is designed to sign documents with TimeStamp Authority.",
+      "security-sensitivity-level" : "high",
+      "system-information" : {
+        "information-types" : [ {
+          "uuid" : "c602d71f-ab6f-46e7-a1f8-20cfebe82858",
+          "title" : "Digital Signatures with Timestamp",
+          "description" : "This system handles the creation, management, and verification of digital signatures, including the addition of secure timestamps to ensure the integrity and authenticity of documents and communications over time.",
+          "categorizations" : [ {
+            "system" : "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+            "information-type-ids" : [ "C.2.8.12" ]
+          } ],
+          "confidentiality-impact" : {
+            "base" : "fips-199-moderate"
+          },
+          "integrity-impact" : {
+            "base" : "fips-199-moderate",
+            "selected" : "fips-199-high",
+            "adjustment-justification" : "Integrity is critical because incorrect or altered signatures and timestamps can lead to significant security breaches and legal consequences, impacting service quality and trust."
+          },
+          "availability-impact" : {
+            "base" : "fips-199-moderate"
+          }
+        } ]
+      },
+      "security-impact-level" : {
+        "security-objective-confidentiality" : "moderate",
+        "security-objective-integrity" : "moderate",
+        "security-objective-availability" : "high"
+      },
+      "status" : {
+        "state" : "under-development"
+      },
+      "authorization-boundary" : {
+        "description" : "The components of the Keyfactor SignServer system are deployed in PrimeKey's secure cloud infrastructure. This setup includes a combination of virtual machines, containers, and managed services that provide digital signature and timestamp services with high availability and security.\n\nThe boundary encompasses the SignServer application, web server, PostgreSQL database, Hardware Security Module (HSM), and related network components such as firewalls and load balancers. All communication within the boundary is secured through encryption and the use of secure protocols. The infrastructure is designed to ensure that only authorized personnel can access or modify the system, with strict access controls and audit logging in place.\n\nThis deployment ensures compliance with relevant security standards and provides a robust environment for handling sensitive digital signatures and timestamps, protecting them from unauthorized access and ensuring their integrity and authenticity."
+      }
+    }
+  }
+}
