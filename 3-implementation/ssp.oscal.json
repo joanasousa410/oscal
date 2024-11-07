@@ -42,7 +42,7 @@
       } ]
     },
     "import-profile" : {
-      "href" : "..2-select/profile.oscal.json"
+      "href" : "..select/profile.oscal.json"
     },
     "system-characteristics" : {
       "system-ids" : [ {
