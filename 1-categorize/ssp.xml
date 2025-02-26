@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan
+    uuid="e03f0068-4a35-4dfb-9c75-d73be7f909b2"
+    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+    <metadata>
+        <title>CSA SignServer SSP</title>
+        <last-modified>2024-01-20T13:57:28.355446-04:00</last-modified> <!-- ALTERAR DEPOIS-->
+        <version>1.0</version>
+        <oscal-version>1.0.4</oscal-version>
+        <role id="owner">
+            <title>CSA SignServer Owner</title>
+        </role>
+        <role id="developer">
+            <title>CSA SignServer Developer</title>
+        </role>
+        <role id="system-engineer">
+            <title>CSA SignServer System Engineer</title>
+        </role>
+        <role id="public-affairs-office">
+            <title>CSA Public Affairs Office</title>
+        </role>
+        <party uuid="5426fcf0-212a-4d4c-be67-f023c7e2370c" type="person">
+            <name>Joana Sousa</name>
+            <member-of-organization>889ce9bd-6a5c-4298-806f-b9a50a8348b8</member-of-organization>
+        </party>
+        <party uuid="889ce9bd-6a5c-4298-806f-b9a50a8348b8" type="organization">
+            <name>Chrono Secure Agency</name>
+            <short-name>CSA</short-name>
+        </party>
+        <responsible-party role-id="owner">
+            <party-uuid>5426fcf0-212a-4d4c-be67-f023c7e2370c</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="developer">
+            <party-uuid>5426fcf0-212a-4d4c-be67-f023c7e2370c</party-uuid>
+        </responsible-party>
+        <responsible-party role-id="system-engineer">
+            <party-uuid>5426fcf0-212a-4d4c-be67-f023c7e2370c</party-uuid>
+        </responsible-party>
+    </metadata>
+    <!-- To fill in: -->
+    <import-profile/>
+    <system-characteristics>
+        <system-id identifier-type="http://ietf.org/rfc/rfc4122">70969f25-13d5-4414-9b9d-cedf207dc55b</system-id>
+        <system-name>CSA SignServer</system-name>
+        <description>
+            <p>This system is designed to sign documents with TimeStamp Authority.</p>
+        </description>
+        <security-sensitivity-level>high</security-sensitivity-level>
+        <system-information>
+            <information-type>
+                <title>Digital Signatures with Timestamp</title>
+                <description>
+                    <p>This system handles the creation, management, and verification of digital signatures, including the addition of secure timestamps to ensure the integrity and authenticity of documents and communications over time.</p>
+                </description>
+                <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                    <information-type-id>C.2.8.12</information-type-id>
+                </categorization>
+                <confidentiality-impact>
+                    <base>fips-199-moderate</base> <!-- Assuming that digital signatures are moderately sensitive --> 
+                </confidentiality-impact>
+                <integrity-impact>
+                    <base>fips-199-high</base>
+                    <selected>fips-199-high</selected> <!-- Increased due to the critical nature of ensuring the integrity of digital signatures and timestamps -->  
+                    <adjustment-justification>
+                        <p>Integrity is critical because incorrect or altered signatures and timestamps can lead to significant security breaches and legal consequences, impacting service quality and trust.</p>
+                    </adjustment-justification>
+                </integrity-impact>
+                <availability-impact>
+                    <base>fips-199-moderate</base> <!-- As availability of the signing and timestamping service is crucial for timely operations --> 
+                </availability-impact>
+            </information-type>
+        </system-information>
+        <security-impact-level>
+            <security-objective-confidentiality>moderate</security-objective-confidentiality>
+            <security-objective-integrity>high</security-objective-integrity>
+            <security-objective-availability>high</security-objective-availability>
+        </security-impact-level>
+        <status state="under-development"></status>
+        <authorization-boundary>
+            <description>
+                <p>The components of this system are deployed in PrimeKey's secure cloud infrastructure, providing digital signature and time stamp services with high availability and security.</p>
+            </description>
+        </authorization-boundary>
+    </system-characteristics>
+    <system-implementation></system-implementation>
+    <control-implementation></control-implementation>
+</system-security-plan>

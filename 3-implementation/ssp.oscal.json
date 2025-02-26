@@ -1,0 +1,317 @@
+{
+  "system-security-plan" : {
+    "uuid" : "e03f0068-4a35-4dfb-9c75-d73be7f909b2",
+    "metadata" : {
+      "title" : "CSA SignServer SSP",
+      "last-modified" : "2024-01-20T13:57:28.355446-04:00",
+      "version" : "1.0",
+      "oscal-version" : "1.0.4",
+      "roles" : [ {
+        "id" : "owner",
+        "title" : "CSA SignServer Owner"
+      }, {
+        "id" : "developer",
+        "title" : "CSA SignServer Developer"
+      }, {
+        "id" : "system-engineer",
+        "title" : "CSA SignServer System Engineer"
+      }, {
+        "id" : "public-affairs-office",
+        "title" : "CSA Public Affairs Office"
+      } ],
+      "parties" : [ {
+        "uuid" : "5426fcf0-212a-4d4c-be67-f023c7e2370c",
+        "type" : "person",
+        "name" : "Joana Sousa",
+        "member-of-organizations" : [ "889ce9bd-6a5c-4298-806f-b9a50a8348b8" ]
+      }, {
+        "uuid" : "889ce9bd-6a5c-4298-806f-b9a50a8348b8",
+        "type" : "organization",
+        "name" : "Chrono Secure Agency",
+        "short-name" : "CSA"
+      } ],
+      "responsible-parties" : [ {
+        "role-id" : "owner",
+        "party-uuids" : [ "5426fcf0-212a-4d4c-be67-f023c7e2370c" ]
+      }, {
+        "role-id" : "developer",
+        "party-uuids" : [ "5426fcf0-212a-4d4c-be67-f023c7e2370c" ]
+      }, {
+        "role-id" : "system-engineer",
+        "party-uuids" : [ "5426fcf0-212a-4d4c-be67-f023c7e2370c" ]
+      } ]
+    },
+    "import-profile" : {
+      "href" : "..select/profile.oscal.json"
+    },
+    "system-characteristics" : {
+      "system-ids" : [ {
+        "identifier-type" : "http://ietf.org/rfc/rfc4122",
+        "id" : "70969f25-13d5-4414-9b9d-cedf207dc55b"
+      } ],
+      "system-name" : "CSA SignServer",
+      "description" : "This system is designed to sign documents with TimeStamp Authority.",
+      "security-sensitivity-level" : "high",
+      "system-information" : {
+        "information-types" : [ {
+          "uuid" : "c602d71f-ab6f-46e7-a1f8-20cfebe82858",
+          "title" : "Digital Signatures with Timestamp",
+          "description" : "This system handles the creation, management, and verification of digital signatures, including the addition of secure timestamps to ensure the integrity and authenticity of documents and communications over time.",
+          "categorizations" : [ {
+            "system" : "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+            "information-type-ids" : [ "C.2.8.12" ]
+          } ],
+          "confidentiality-impact" : {
+            "base" : "fips-199-moderate"
+          },
+          "integrity-impact" : {
+            "base" : "fips-199-moderate",
+            "selected" : "fips-199-high",
+            "adjustment-justification" : "Integrity is critical because incorrect or altered signatures and timestamps can lead to significant security breaches and legal consequences, impacting service quality and trust."
+          },
+          "availability-impact" : {
+            "base" : "fips-199-moderate"
+          }
+        } ]
+      },
+      "security-impact-level" : {
+        "security-objective-confidentiality" : "moderate",
+        "security-objective-integrity" : "moderate",
+        "security-objective-availability" : "high"
+      },
+      "status" : {
+        "state" : "under-development"
+      },
+      "authorization-boundary" : {
+        "description" : "The components of the Keyfactor SignServer system are deployed in PrimeKey's secure cloud infrastructure. This setup includes a combination of virtual machines, containers, and managed services that provide digital signature and timestamp services with high availability and security. The boundary encompasses the SignServer application, web server, PostgreSQL database, Hardware Security Module (HSM), and related network components such as firewalls and load balancers. All communication within the boundary is secured through encryption and the use of secure protocols. The infrastructure is designed to ensure that only authorized personnel can access or modify the system, with strict access controls and audit logging in place. This deployment ensures compliance with relevant security standards and provides a robust environment for handling sensitive digital signatures and timestamps, protecting them from unauthorized access and ensuring their integrity and authenticity."
+      },
+      "network-architecture" : {
+        "description" : "This section describes the network architecture of the Keyfactor SignServer system, which is deployed in PrimeKey's secure cloud infrastructure. The architecture includes multiple layers of security to ensure the integrity and confidentiality of digital signatures and timestamps. The primary components include firewalls, load balancers, and secure communication channels to protect data in transit and at rest. The SignServer system communicates with external clients via secure API endpoints, ensuring that all requests and responses are encrypted using TLS. Internally, the system leverages a secure VPN for communication between different components, such as the web server, database server, and Hardware Security Module (HSM)."
+      },
+      "data-flow" : {
+        "description" : "This section describes the data flow within the Keyfactor SignServer system, outlining how data moves between various components of the application. The data flow begins with user requests for digital signatures or timestamping, which are received by the web server running the DSS Framework. Upon receiving a request, the web server validates the request and forwards it to the appropriate service within the SignServer application. The application then interacts with the PostgreSQL database to retrieve or store relevant data. For cryptographic operations, the application communicates with the nCipher nShield HSM to ensure secure key management and operation execution. Once the digital signature or timestamp is generated, the result is sent back to the client through the secure API endpoint. The entire process is logged in the audit logs, which are also stored in the PostgreSQL database for traceability and compliance purposes."
+      }
+    },
+    "system-implementation" : {
+      "users" : [ {
+        "uuid" : "a2bf42a1-da63-439f-aeb3-52c05f25cd71",
+        "title" : "SignServer Developer",
+        "description" : "The SignServer Developer is responsible for managing the SignServer, including user management, system configuration, and monitoring of signing and timestamping activities.",
+        "role-ids" : [ "developer" ],
+        "authorized-privileges" : [ {
+          "title" : "Developer Privileges",
+          "functions-performed" : [ "user-creation", "system-configuration", "monitor-signing-activities", "key-management", "audit-log-review", "system-updates" ]
+        } ]
+      }, {
+        "uuid" : "f8e6ad39-a64d-4eac-a77e-3f584305fb32",
+        "title" : "General Public",
+        "description" : "The general public can verify digital signatures created by the SignServer.",
+        "authorized-privileges" : [ {
+          "title" : "General Public Privilege",
+          "functions-performed" : [ "signature-verification" ]
+        } ]
+      } ],
+      "components" : [ {
+        "uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+        "type" : "digital-signing-system",
+        "title" : "CSA SignServer System",
+        "description" : "CSA SignServer system provides digital signing services with secure timestamps to ensure the integrity and authenticity of documents and communications.",
+        "status" : {
+          "state" : "under-development"
+        },
+        "responsible-roles" : [ {
+          "role-id" : "developer",
+          "party-uuids" : [ "5426fcf0-212a-4d4c-be67-f023c7e2370c" ]
+        }, {
+          "role-id" : "system-engineer",
+          "party-uuids" : [ "5426fcf0-212a-4d4c-be67-f023c7e2370c" ]
+        } ]
+      } ],
+      "inventory-items" : [ {
+        "uuid" : "253a3b1a-5a58-48f3-8ff9-c069fa61d019",
+        "description" : "This is the Keyfactor SignServer application within the system.",
+        "props" : [ {
+          "name" : "software-name",
+          "value" : "Keyfactor SignServer",
+          "class" : "signing-application"
+        }, {
+          "name" : "software-version",
+          "value" : "6.2.0",
+          "class" : "signing-application"
+        }, {
+          "name" : "asset-type",
+          "value" : "digital-signing-server",
+          "class" : "signing-application"
+        } ],
+        "implemented-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "props" : [ {
+            "name" : "asset-id",
+            "value" : "CSA-SYSTEM1234-SIGNSERVER"
+          } ]
+        } ]
+      }, {
+        "uuid" : "669e90b8-9fed-4a71-b422-22425f547457",
+        "description" : "This is the web application framework upon which the Keyfactor SignServer application is built, providing the user interface and API of this system.",
+        "props" : [ {
+          "name" : "software-name",
+          "value" : "DSS Framework",
+          "class" : "webserver-framework"
+        }, {
+          "name" : "software-version",
+          "value" : "5.9",
+          "class" : "webserver-framework"
+        }, {
+          "name" : "asset-type",
+          "value" : "web-server",
+          "class" : "webserver-framework"
+        } ],
+        "implemented-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "props" : [ {
+            "name" : "asset-id",
+            "value" : "CSA-SYSTEM1234-SIGNSERVER"
+          } ]
+        } ]
+      }, {
+        "uuid" : "3d733e5a-37dd-4072-a6e3-3b6e1f317830",
+        "description" : "This is the database for the Keyfactor SignServer application within the system.",
+        "props" : [ {
+          "name" : "software-name",
+          "value" : "PostgreSQL",
+          "class" : "database"
+        }, {
+          "name" : "software-version",
+          "value" : "13.4",
+          "class" : "database"
+        }, {
+          "name" : "asset-type",
+          "value" : "database",
+          "class" : "database"
+        } ],
+        "implemented-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "props" : [ {
+            "name" : "asset-id",
+            "value" : "CSA-SYSTEM1234-SIGNSERVER"
+          } ]
+        } ]
+      }, {
+        "uuid" : "8684aa11-f879-46eb-97bf-896e4dda69b4",
+        "description" : "This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.",
+        "props" : [ {
+          "name" : "hardware-name",
+          "value" : "soft HSM",
+          "class" : "hardware"
+        }, {
+          "name" : "asset-type",
+          "value" : "security-module",
+          "class" : "hardware"
+        } ],
+        "implemented-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "props" : [ {
+            "name" : "asset-id",
+            "value" : "CSA-SYSTEM1234-HSM"
+          } ]
+        } ]
+      }, {
+        "uuid" : "c7d6582c-376c-4ea3-900b-bda98e0de646",
+        "description" : "This is the operating system for the web server that runs the Keyfactor SignServer application within the system.",
+        "props" : [ {
+          "name" : "software-name",
+          "value" : "AlmaLinux",
+          "class" : "operating-system"
+        }, {
+          "name" : "software-version",
+          "value" : "8.8",
+          "class" : "operating-system"
+        }, {
+          "name" : "asset-type",
+          "value" : "operating-system",
+          "class" : "operating-system"
+        } ],
+        "implemented-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "props" : [ {
+            "name" : "asset-id",
+            "value" : "CSA-SYSTEM1234-SIGNSERVER"
+          } ]
+        } ]
+      }, {
+        "uuid" : "b0e61193-2a9c-4275-83c0-d41ed00b8bb7",
+        "description" : "This inventory item is an instance from the AwesomeCloud Awesome Compute Service (ACS) Service. It is a Linux server.",
+        "props" : [ {
+          "name" : "asset-id",
+          "value" : "instance-abcd1234",
+          "class" : "linux-server"
+        }, {
+          "name" : "ipv4-address",
+          "value" : "172.1.2.3",
+          "class" : "linux-server"
+        }, {
+          "name" : "ipv4-address",
+          "value" : "1.1.2.3",
+          "class" : "linux-server"
+        }, {
+          "name" : "uri",
+          "value" : "instance-abcd1234.acs.awesomecloud.systems",
+          "class" : "linux-server"
+        }, {
+          "name" : "asset-type",
+          "value" : "appliance",
+          "class" : "linux-server"
+        } ],
+        "implemented-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "props" : [ {
+            "name" : "asset-id",
+            "value" : "CSA-SYSTEM1234-SIGNSERVER"
+          } ]
+        } ]
+      }, {
+        "uuid" : "9a3dc099-d905-4fdc-a3ad-38f7a9948862",
+        "description" : "This inventory item is an instance from the AwesomeCloud Awesome Load Balancer (ALB) Service. It is a Linux server.",
+        "props" : [ {
+          "name" : "asset-type",
+          "value" : "appliance",
+          "class" : "network-load-balancer"
+        }, {
+          "name" : "asset-id",
+          "value" : "instance-defg7890",
+          "class" : "linux-server"
+        }, {
+          "name" : "uri",
+          "value" : "https://instance-defg7890.alb.awesomecloud.systems",
+          "class" : "network-load-balancer"
+        } ],
+        "implemented-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "props" : [ {
+            "name" : "asset-id",
+            "value" : "CSA-SYSTEM1234-SIGNSERVER"
+          } ]
+        } ]
+      } ]
+    },
+    "control-implementation" : {
+      "description" : "This is the control implementation for the application and infrastructure that compose to the CSA SignServer Ticket Project's system.",
+      "set-parameters" : [ {
+        "param-id" : "au-08_odp",
+        "values" : [ "granularity of time measurement for audit record timestamps is defined;" ]
+      } ],
+      "implemented-requirements" : [ {
+        "uuid" : "76133e90-c573-43bb-aaf9-684eb00ec351",
+        "control-id" : "au-8",
+        "by-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "uuid" : "8d04cac5-a9dc-476e-95e2-19d7b41f6778",
+          "description" : "The Keyfactor SignServer ensures the integrity and authenticity of digital signatures by incorporating secure timestamping.\n\nThe system records the exact time of each digital signature operation using a Time Stamp Authority (TSA) to provide non-repudiation and traceability.\n\nTimestamping is critical to ensure that the signing times are accurate and tamper-proof. The system uses synchronized and secure time sources to generate these timestamps, which are then embedded in the digital signatures. The audit logs capture the timestamps for all signing activities, supporting forensic analysis and compliance with regulatory requirements.\n\nThe SignServer application is built on the DSS Framework (version 5.9), which provides the user interface and API for managing digital signatures and timestamps. This framework ensures robust handling of signing operations and integration with other system components.\n\nThe application runs on AlmaLinux, a secure and stable operating system designed for enterprise applications. This ensures the underlying infrastructure is reliable and secure, providing a stable environment for the SignServer application.\n\nThe implementation of this control includes the use of a Hardware Security Module (HSM), specifically the nCipher nShield HSM (version 12.60.5), for secure key management and cryptographic operations. The HSM ensures that cryptographic keys are generated, stored, and used in a highly secure manner, protecting the integrity of the timestamping process.",
+          "implementation-status" : {
+            "state" : "implemented"
+          }
+        } ]
+      } ]
+    }
+  }
+}

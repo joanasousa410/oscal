@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plan-of-action-and-milestones
+    uuid="2b0a6023-1990-405a-b517-29524ae1f151"
+    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+    <metadata>
+        <title>CSA SignServer Plan of Action and Milestones</title>
+        <last-modified>2024-01-20T15:30:00-04:00</last-modified>
+        <version>1.0</version>
+        <oscal-version>1.0.4</oscal-version>
+    </metadata>
+    <import-ssp href="../3-implementation/ssp.oscal.xml"/>
+    <system-id identifier-type="http://ietf.org/rfc/rfc4122">70969f25-13d5-4414-9b9d-cedf207dc55b</system-id>
+    <observation uuid="0764b173-d97a-4417-b498-658e50e9f387">
+        <title>Keyfactor SignServer HSM Key Protection Assessment</title>
+        <description>
+            <p>Assessment of the HSM integration for Keyfactor SignServer to ensure secure key storage and compliance requirements.</p>
+        </description>
+        <method>EXAMINE</method>
+        <type>control-objective</type>
+        <subject subject-uuid="35d1c6d4-164c-4095-ac58-80994b888d59" type="component"/>
+        <collected>2024-06-25T20:13:11.355446-04:00</collected>
+        <remarks>
+            <p>While Keyfactor SignServer is configured to use an HSM for key storage, analysis of system logs indicates that some timestamp signing operations were executed using software-based key stores.</p>
+            <p>This deviation suggests either misconfiguration or fallback behavior where certain requests are handled outside of the HSM environment.</p>
+            <p>The absence of strict enforcement of HSM usage could expose timestamping keys to unauthorized access, increasing the risk of key compromise.</p>
+        </remarks>
+    </observation>
+    <risk uuid="2415c0ce-e90d-4ebe-8423-8c4e42e60d9b">
+        <title>RISK 1: Unauthorized Access to Timestamp Signing Keys</title>
+        <description>
+            <p>If an attacker or unauthorized user gains access to the signing keys used for timestamping operations, they could issue fraudulent timestamps, compromising the integrity and trust of signed documents and software.</p>
+        </description>
+        <statement>
+            <p>Failure to properly secure and restrict access to the timestamp signing keys can lead to unauthorized issuance of timestamps, potentially allowing adversaries to backdate or forward-date signatures on critical documents or software.</p>
+            <p>Such a compromise could undermine regulatory compliance (e.g., eIDAS, RFC 3161, FedRAMP) and expose organizations to legal and financial penalties. If exploited, this risk could also erode trust in the organization's timestamping authority, leading to reputational damage and loss of business.</p>
+        </statement>
+        <status>deviation-approved</status>
+        <characterization>
+            <origin>
+                <actor type="party" actor-uuid="5426fcf0-212a-4d4c-be67-f023c7e2370c"/>
+            </origin>
+            <facet name="impact" value="high" system="https://www.signserver.org/"/>
+        </characterization>
+        <mitigating-factor uuid="005904d7-1f39-4b67-9b2a-a29fc27442f9">
+            <description>
+                <p>The Keyfactor incorporates the HSM for safeguarding cryptographic keys for a secure digital-signing-system.</p>
+            </description>
+        </mitigating-factor>
+        <deadline>2023-11-04T00:45:00-04:00</deadline>
+        <response uuid="f8ad7c77-f14e-41ae-b3d0-53bf76aa3941" lifecycle="complete">
+            <title>RISK 1-RESPONSE: Unauthorized Access to Timestamp Signing Keys</title>
+            <description>
+                <p>The Sign Server team currently lacks the personnel and financial resources to enhance the HSM configurations to fully secure timestamp signing keys within this financial quarter.</p>
+            </description>
+            <prop name="type" value="accept"/>
+        </response>
+        <related-observation observation-uuid="0764b173-d97a-4417-b498-658e50e9f387"/>
+    </risk>
+    <poam-item uuid="23e965d3-1c7e-4381-b171-f2154e2db213">
+        <title>Enhance HSM Security Configuration for Keyfactor Sign Server</title>
+        <description>
+            <p>Additional budget and specialized technical personnel are required to upgrade and configure the Hardware Security Module (HSM) integration with the Keyfactor Sign Server. This enhancement aims to fortify the security measures protecting the cryptographic keys used in the digital signing processes. The Sign Server, as a critical component of security operations, necessitates robust mechanisms to prevent unauthorized access and ensure the integrity of the signing operations.</p>
+        </description>
+        <related-observation observation-uuid="0764b173-d97a-4417-b498-658e50e9f387"/>
+        <associated-risk risk-uuid="005904d7-1f39-4b67-9b2a-a29fc27442f9" />
+    </poam-item>
+</plan-of-action-and-milestones>
