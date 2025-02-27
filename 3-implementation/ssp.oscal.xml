@@ -180,7 +180,7 @@
             <description>
                 <p>This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.</p>
             </description>
-            <prop class="hardware" name="hardware-model" value="SoftHSM Luna"/>
+            <prop class="hardware" name="hardware-model" value="Soft HSM Luna"/>
             <prop class="hardware" name="asset-type" value="security-module"/>
             <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
                 <prop name="asset-id" value="CSA-SYSTEM1234-HSM"/>
