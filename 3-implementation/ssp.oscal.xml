@@ -111,11 +111,12 @@
         <user uuid="f8e6ad39-a64d-4eac-a77e-3f584305fb32">
             <title>General Public</title>
             <description>
-                <p>The general public can verify digital signatures created by the SignServer.</p>
+                <p>The general public can verify and create digital signatures created by the SignServer.</p>
             </description>
             <authorized-privilege>
                 <title>General Public Privilege</title>
                 <function-performed>signature-verification</function-performed>
+                <function-performed>signature-creation</function-performed>
             </authorized-privilege>
         </user>
         <component uuid="35d1c6d4-164c-4095-ac58-80994b888d59" type="digital-signing-system">
@@ -164,16 +165,6 @@
                 <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
             </implemented-component>
         </inventory-item>
-        <inventory-item uuid="8684aa11-f879-46eb-97bf-896e4dda69b4">
-            <description>
-            <p>This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.</p>
-            </description>
-            <prop class="hardware" name="hardware-name" value="soft HSM"/>
-            <prop class="hardware" name="asset-type" value="security-module"/>
-            <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
-                <prop name="asset-id" value="CSA-SYSTEM1234-HSM"/>
-            </implemented-component>
-        </inventory-item>
         <inventory-item uuid="c7d6582c-376c-4ea3-900b-bda98e0de646">
             <description>
                 <p>This is the operating system for the web server that runs the Keyfactor SignServer application within the system.</p>
@@ -183,6 +174,16 @@
             <prop class="operating-system" name="asset-type" value="operating-system"/>
             <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
                 <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
+            </implemented-component>
+        </inventory-item>
+                <inventory-item uuid="8684aa11-f879-46eb-97bf-896e4dda69b4">
+            <description>
+            <p>This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.</p>
+            </description>
+            <prop class="hardware" name="hardware-model" value="Soft HSM Luna"/>
+            <prop class="hardware" name="asset-type" value="security-module"/>
+            <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
+                <prop name="asset-id" value="CSA-SYSTEM1234-HSM"/>
             </implemented-component>
         </inventory-item>
         <inventory-item uuid="b0e61193-2a9c-4275-83c0-d41ed00b8bb7">
@@ -225,7 +226,7 @@
                     <p>Timestamping is critical to ensure that the signing times are accurate and tamper-proof. The system uses synchronized and secure time sources to generate these timestamps, which are then embedded in the digital signatures. The audit logs capture the timestamps for all signing activities, supporting forensic analysis and compliance with regulatory requirements.</p>
                     <p>The SignServer application is built on the DSS Framework (version 5.9), which provides the user interface and API for managing digital signatures and timestamps. This framework ensures robust handling of signing operations and integration with other system components.</p>
                     <p>The application runs on AlmaLinux, a secure and stable operating system designed for enterprise applications. This ensures the underlying infrastructure is reliable and secure, providing a stable environment for the SignServer application.</p>
-                    <p>The implementation of this control includes the use of a Hardware Security Module (HSM), specifically the nCipher nShield HSM (version 12.60.5), for secure key management and cryptographic operations. The HSM ensures that cryptographic keys are generated, stored, and used in a highly secure manner, protecting the integrity of the timestamping process.</p>
+                    <p>The implementation of this control includes the use of a Hardware Security Module (HSM), for secure key management and cryptographic operations. The HSM ensures that cryptographic keys are generated, stored, and used in a highly secure manner, protecting the integrity of the timestamping process.</p>
                 </description>
                 <implementation-status state="implemented"/>
             </by-component>
