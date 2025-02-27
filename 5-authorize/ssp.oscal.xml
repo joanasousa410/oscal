@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <system-security-plan
-    uuid=""
+    uuid="44768cc3-3c63-4655-ba52-bf0fb1489dfe"
     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
     <metadata>
         <title>CSA SignServer SSP</title>
@@ -45,7 +45,7 @@
         <description>
             <p>This system is designed to sign documents with TimeStamp Authority.</p>
         </description>
-        <date-authorized></date-authorized>
+        <date-authorized>2024-01-20</date-authorized>
         <security-sensitivity-level>high</security-sensitivity-level>
         <system-information>
             <information-type uuid="c602d71f-ab6f-46e7-a1f8-20cfebe82858">
@@ -153,7 +153,7 @@
             <prop class="webserver-framework" name="asset-type" value="web-server"/>
             <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
                 <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
-        </implemented-component>
+            </implemented-component>
         </inventory-item>
         <inventory-item uuid="3d733e5a-37dd-4072-a6e3-3b6e1f317830">
             <description>
@@ -165,6 +165,7 @@
             <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
                 <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
             </implemented-component>
+        </inventory-item>
         <inventory-item uuid="c7d6582c-376c-4ea3-900b-bda98e0de646">
             <description>
                 <p>This is the operating system for the web server that runs the Keyfactor SignServer application within the system.</p>
@@ -176,8 +177,7 @@
                 <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
             </implemented-component>
         </inventory-item>
-                </inventory-item>
-            <inventory-item uuid="8684aa11-f879-46eb-97bf-896e4dda69b4">
+        <inventory-item uuid="8684aa11-f879-46eb-97bf-896e4dda69b4">
             <description>
             <p>This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.</p>
             </description>

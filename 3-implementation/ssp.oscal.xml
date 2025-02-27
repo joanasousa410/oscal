@@ -152,7 +152,7 @@
             <prop class="webserver-framework" name="asset-type" value="web-server"/>
             <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
                 <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
-        </implemented-component>
+            </implemented-component>
         </inventory-item>
         <inventory-item uuid="3d733e5a-37dd-4072-a6e3-3b6e1f317830">
             <description>
@@ -176,11 +176,11 @@
                 <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
             </implemented-component>
         </inventory-item>
-                <inventory-item uuid="8684aa11-f879-46eb-97bf-896e4dda69b4">
+        <inventory-item uuid="b0e61193-2a9c-4275-83c0-d41ed00b8bb7">
             <description>
-            <p>This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.</p>
+                <p>This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.</p>
             </description>
-            <prop class="hardware" name="hardware-model" value="Soft HSM Luna"/>
+            <prop class="hardware" name="hardware-model" value="SoftHSM Luna"/>
             <prop class="hardware" name="asset-type" value="security-module"/>
             <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
                 <prop name="asset-id" value="CSA-SYSTEM1234-HSM"/>
