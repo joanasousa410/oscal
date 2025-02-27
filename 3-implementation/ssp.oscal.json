@@ -108,7 +108,7 @@
         "description" : "The general public can verify and create digital signatures created by the SignServer.",
         "authorized-privileges" : [ {
           "title" : "General Public Privilege",
-          "functions-performed" : [ "signature-verification", "signature-creation" ]
+          "functions-performed" : [ "signature-verification" ]
         } ]
       } ],
       "components" : [ {
@@ -217,6 +217,25 @@
           "props" : [ {
             "name" : "asset-id",
             "value" : "CSA-SYSTEM1234-SIGNSERVER"
+          } ]
+        } ]
+      }, {
+        "uuid" : "b0e61193-2a9c-4275-83c0-d41ed00b8bb7",
+        "description" : "This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.",
+        "props" : [ {
+          "name" : "hardware-model",
+          "value" : "Soft HSM Luna",
+          "class" : "hardware"
+        }, {
+          "name" : "asset-type",
+          "value" : "security-module",
+          "class" : "hardware"
+        } ],
+        "implemented-components" : [ {
+          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
+          "props" : [ {
+            "name" : "asset-id",
+            "value" : "CSA-SYSTEM1234-HSM"
           } ]
         } ]
       }, {
