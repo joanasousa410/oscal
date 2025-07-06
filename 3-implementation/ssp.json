@@ -224,7 +224,7 @@
         "description" : "This inventory item is the Hardware Security Module (HSM) used by the Keyfactor SignServer for securing cryptographic keys essential for digital signing processes.",
         "props" : [ {
           "name" : "hardware-model",
-          "value" : "Soft HSM Luna",
+          "value" : "soft HSM",
           "class" : "hardware"
         }, {
           "name" : "asset-type",
@@ -238,62 +238,7 @@
             "value" : "CSA-SYSTEM1234-HSM"
           } ]
         } ]
-      }, {
-        "uuid" : "b0e61193-2a9c-4275-83c0-d41ed00b8bb7",
-        "description" : "This inventory item is an instance from the AwesomeCloud Awesome Compute Service (ACS) Service. It is a Linux server.",
-        "props" : [ {
-          "name" : "asset-id",
-          "value" : "instance-abcd1234",
-          "class" : "linux-server"
-        }, {
-          "name" : "ipv4-address",
-          "value" : "172.1.2.3",
-          "class" : "linux-server"
-        }, {
-          "name" : "ipv4-address",
-          "value" : "1.1.2.3",
-          "class" : "linux-server"
-        }, {
-          "name" : "uri",
-          "value" : "instance-abcd1234.acs.awesomecloud.systems",
-          "class" : "linux-server"
-        }, {
-          "name" : "asset-type",
-          "value" : "appliance",
-          "class" : "linux-server"
-        } ],
-        "implemented-components" : [ {
-          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
-          "props" : [ {
-            "name" : "asset-id",
-            "value" : "CSA-SYSTEM1234-SIGNSERVER"
-          } ]
-        } ]
-      }, {
-        "uuid" : "9a3dc099-d905-4fdc-a3ad-38f7a9948862",
-        "description" : "This inventory item is an instance from the AwesomeCloud Awesome Load Balancer (ALB) Service. It is a Linux server.",
-        "props" : [ {
-          "name" : "asset-type",
-          "value" : "appliance",
-          "class" : "network-load-balancer"
-        }, {
-          "name" : "asset-id",
-          "value" : "instance-defg7890",
-          "class" : "linux-server"
-        }, {
-          "name" : "uri",
-          "value" : "https://instance-defg7890.alb.awesomecloud.systems",
-          "class" : "network-load-balancer"
-        } ],
-        "implemented-components" : [ {
-          "component-uuid" : "35d1c6d4-164c-4095-ac58-80994b888d59",
-          "props" : [ {
-            "name" : "asset-id",
-            "value" : "CSA-SYSTEM1234-SIGNSERVER"
-          } ]
-        } ]
-      } ]
-    },
+      },
     "control-implementation" : {
       "description" : "This is the control implementation for the application and infrastructure that compose to the CSA SignServer Ticket Project's system.",
       "set-parameters" : [ {
