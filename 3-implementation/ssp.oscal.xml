@@ -199,17 +199,6 @@
                 <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
             </implemented-component>
         </inventory-item>
-        <inventory-item uuid="9a3dc099-d905-4fdc-a3ad-38f7a9948862">
-            <description>
-                <p>This inventory item is an instance from the AwesomeCloud Awesome Load Balancer (ALB) Service. It is a Linux server.</p>
-            </description>
-            <prop class="network-load-balancer" name="asset-type" value="appliance"/>
-            <prop class="linux-server" name="asset-id" value="instance-defg7890"/>
-            <prop class="network-load-balancer" name="uri" value="https://instance-defg7890.alb.awesomecloud.systems"/>
-            <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
-                <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
-            </implemented-component>
-        </inventory-item>
     </system-implementation>
     <control-implementation>
         <description>
