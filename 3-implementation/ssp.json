@@ -238,7 +238,8 @@
             "value" : "CSA-SYSTEM1234-HSM"
           } ]
         } ]
-      },
+      }]
+    },
     "control-implementation" : {
       "description" : "This is the control implementation for the application and infrastructure that compose to the CSA SignServer Ticket Project's system.",
       "set-parameters" : [ {
