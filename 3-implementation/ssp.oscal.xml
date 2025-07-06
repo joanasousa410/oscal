@@ -186,19 +186,6 @@
                 <prop name="asset-id" value="CSA-SYSTEM1234-HSM"/>
             </implemented-component>
         </inventory-item>
-        <inventory-item uuid="b0e61193-2a9c-4275-83c0-d41ed00b8bb7">
-            <description>
-                <p>This inventory item is an instance from the AwesomeCloud Awesome Compute Service (ACS) Service. It is a Linux server.</p>
-            </description>
-            <prop class="linux-server" name="asset-id" value="instance-abcd1234"/>
-            <prop class="linux-server" name="ipv4-address" value="172.1.2.3"/>
-            <prop class="linux-server" name="ipv4-address" value="1.1.2.3"/>
-            <prop class="linux-server" name="uri" value="instance-abcd1234.acs.awesomecloud.systems"/>
-            <prop class="linux-server" name="asset-type" value="appliance"/>
-            <implemented-component component-uuid="35d1c6d4-164c-4095-ac58-80994b888d59">
-                <prop name="asset-id" value="CSA-SYSTEM1234-SIGNSERVER"/>
-            </implemented-component>
-        </inventory-item>
     </system-implementation>
     <control-implementation>
         <description>
