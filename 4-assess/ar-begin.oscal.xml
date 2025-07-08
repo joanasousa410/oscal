@@ -45,10 +45,6 @@
                 <description>
                     <p>The assessor will verify that the HSM is correctly integrated and configured for secure key management. This ensures that cryptographic keys are protected against unauthorized access and theft.</p>
                 </description>
-                <remarks>
-                    <p>This step is complete.</p>
-                    <p>The HSM integration and configuration were verified to ensure cryptographic keys are securely managed and protected from unauthorized access.</p>
-                </remarks>
             </step>
             <step uuid="d83cbd22-0e6c-4082-b7ce-89a01c96028a">
                 <title>Test Timestamp Accuracy</title>
